@@ -1,65 +1,229 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import { OrventisAnimatedHero } from "@/components/ui/animated-hero";
+import StatsSection from "@/components/sections/StatsSection";
+import CtaSection from "@/components/sections/CtaSection";
+import FadeInOnScroll from "@/components/animations/FadeInOnScroll";
+import { Button } from "@/components/ui/Button";
+import { homeContent } from "@/content/home";
+import { ArrowUpRight } from "lucide-react";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Orventis — Global Trade & Brand Strategy",
+  description:
+    "We Trade Commodities. We Build Brands. We Operate Globally. Orventis is your strategic partner for international commodity trading and brand positioning.",
+};
+
+export default function HomePage() {
+  const { intro, businessLines, stats, closingCta } = homeContent;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Header />
+      <main>
+        {/* ── Animated Hero ── */}
+        <OrventisAnimatedHero />
+
+        {/* ── Intro ── */}
+        <section
+          className="py-28 lg:py-36"
+          style={{ background: "#0D0D1A" }}
+          aria-label="About Orventis"
+        >
+          <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <FadeInOnScroll direction="left">
+                <div>
+                  <p className="eyebrow mb-6">Who We Are</p>
+                  <h2
+                    className="display-black text-white mb-6"
+                    style={{ fontSize: "clamp(2.4rem, 5vw, 4.2rem)" }}
+                  >
+                    {intro.tagline}
+                  </h2>
+                  <div
+                    className="h-[3px] w-16 mb-8"
+                    style={{ background: "#3B6FD4" }}
+                    aria-hidden="true"
+                  />
+                </div>
+              </FadeInOnScroll>
+              <FadeInOnScroll direction="right" delay={150}>
+                <div className="space-y-5">
+                  <p className="text-lg text-gray-300 leading-relaxed">{intro.description}</p>
+                  <p className="text-base text-gray-500 leading-relaxed">{intro.detail}</p>
+                  <div
+                    className="flex flex-wrap items-center gap-3 pt-4"
+                    style={{ borderTop: "1px solid rgba(59,111,212,0.15)" }}
+                  >
+                    {["Commodity Trading", "Brand Positioning", "6 Continents", "15+ Years"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded"
+                        style={{
+                          background: "rgba(59,111,212,0.12)",
+                          border: "1px solid rgba(59,111,212,0.25)",
+                          color: "#5A8DE8",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeInOnScroll>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Business Split — editorial 2-up with real images ── */}
+        <section
+          style={{ background: "#050810" }}
+          aria-label="Business Lines"
+        >
+          <div className="grid lg:grid-cols-2">
+            {businessLines.map((line, i) => (
+              <FadeInOnScroll key={line.id} direction={i === 0 ? "left" : "right"} delay={i * 80}>
+                <BusinessCard line={line} index={i} />
+              </FadeInOnScroll>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Stats ── */}
+        <StatsSection stats={stats} />
+
+        {/* ── Editorial image break ── */}
+        <section
+          className="relative overflow-hidden"
+          style={{ height: "55vh", minHeight: "360px" }}
+          aria-label="Global operations visual"
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=1920&q=80"
+            alt="Cargo ship navigating international waters"
+            fill
+            className="object-cover img-editorial"
+            sizes="100vw"
+          />
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(5,8,16,0.7) 0%, rgba(26,43,94,0.5) 50%, rgba(5,8,16,0.8) 100%)",
+            }}
+          >
+            <FadeInOnScroll>
+              <blockquote
+                className="text-center px-6 max-w-4xl"
+                style={{ fontFamily: "var(--font-playfair)" }}
+              >
+                <p
+                  className="font-black italic text-white"
+                  style={{ fontSize: "clamp(1.6rem, 4vw, 3.2rem)", letterSpacing: "-0.02em" }}
+                >
+                  &ldquo;Orventis is where global trade meets strategic brand thinking.&rdquo;
+                </p>
+              </blockquote>
+            </FadeInOnScroll>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <CtaSection
+          headline={closingCta.headline}
+          subtext={closingCta.subtext}
+          cta={closingCta.cta}
+          secondary={{ label: "Explore Services", href: "/commodity-trading" }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
       </main>
+      <Footer />
+    </>
+  );
+}
+
+/* ── Business card with real photo ── */
+type BusinessLine = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  cta: { label: string; href: string };
+  visual: string;
+};
+
+const CARD_IMAGES: Record<string, { src: string; alt: string }> = {
+  "commodity-trading": {
+    src: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=900&q=80",
+    alt: "Global port with containers representing commodity trading",
+  },
+  "brand-positioning": {
+    src: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=900&q=80",
+    alt: "Brand design and creative strategy workspace",
+  },
+};
+
+function BusinessCard({ line, index }: { line: BusinessLine; index: number }) {
+  const img = CARD_IMAGES[line.id];
+  return (
+    <div
+      className="relative flex flex-col justify-end min-h-[600px] lg:min-h-[740px] overflow-hidden group card-hover"
+      style={{
+        borderRight: index === 0 ? "1px solid rgba(59,111,212,0.12)" : "none",
+      }}
+    >
+      {/* Photo */}
+      {img && (
+        <Image
+          src={img.src}
+          alt={img.alt}
+          fill
+          className="object-cover img-editorial transition-transform duration-700 group-hover:scale-[1.04]"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      )}
+
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(5,8,16,0.97) 25%, rgba(5,8,16,0.55) 65%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Number */}
+      <span
+        className="absolute top-8 right-8 font-black opacity-[0.07] pointer-events-none select-none"
+        style={{
+          fontFamily: "var(--font-playfair)",
+          fontSize: "clamp(7rem, 14vw, 12rem)",
+          color: "#fff",
+          lineHeight: 1,
+        }}
+        aria-hidden="true"
+      >
+        {index === 0 ? "01" : "02"}
+      </span>
+
+      {/* Content */}
+      <div className="relative z-10 p-10 lg:p-14">
+        <p className="eyebrow mb-4">{line.subtitle}</p>
+        <h2
+          className="display-headline text-white mb-5"
+          style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
+        >
+          {line.title}
+        </h2>
+        <p className="text-gray-300 leading-relaxed mb-8 max-w-md">{line.description}</p>
+        <Button href={line.cta.href} variant="outline" size="lg" className="gap-3 group/btn">
+          {line.cta.label}
+          <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+        </Button>
+      </div>
     </div>
   );
 }
