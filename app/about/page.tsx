@@ -84,7 +84,7 @@ export default function AboutPage() {
         {/* ── Our Story ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
+          style={{ background: "#FFFFFF" }}
           aria-label="Our Story"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 <div>
                   <p className="eyebrow mb-6">Our Story</p>
                   <h2
-                    className="display-black text-white leading-tight"
+                    className="display-black text-gray-900 leading-tight"
                     style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
                   >
                     {story.title}
@@ -104,7 +104,7 @@ export default function AboutPage() {
               <FadeInOnScroll direction="right" delay={150}>
                 <div className="space-y-5">
                   {story.paragraphs.map((p, i) => (
-                    <p key={i} className="text-gray-300 leading-relaxed">
+                    <p key={i} className="text-gray-600 leading-relaxed">
                       {p}
                     </p>
                   ))}
@@ -137,7 +137,7 @@ export default function AboutPage() {
         {/* ── Values ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#111827" }}
+          style={{ background: "#F8FAFD" }}
           aria-label="Our Values"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -146,6 +146,7 @@ export default function AboutPage() {
               headline="What drives every decision"
               subtext="These principles shape how we work, how we partner, and how we deliver — consistently, across every market we operate in."
               align="center"
+              light={true}
             />
             <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {values.map((value, i) => (
@@ -153,24 +154,25 @@ export default function AboutPage() {
                   <div
                     className="p-8 rounded-xl card-hover"
                     style={{
-                      background: "var(--color-bg-card)",
-                      border: "1px solid rgba(59,111,212,0.12)",
+                      background: "#FFFFFF",
+                      border: "1.5px solid rgba(15,23,42,0.07)",
+                      boxShadow: "0 2px 16px rgba(15,23,42,0.05)",
                     }}
                   >
                     <div
                       className="w-12 h-12 rounded-lg flex items-center justify-center mb-5"
-                      style={{ background: "rgba(59,111,212,0.15)" }}
+                      style={{ background: "#EEF3FB" }}
                       aria-hidden="true"
                     >
                       <ValueIcon type={value.icon} />
                     </div>
                     <h3
-                      className="display-headline text-white mb-3"
+                      className="display-headline text-gray-900 mb-3"
                       style={{ fontSize: "1.15rem" }}
                     >
                       {value.title}
                     </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{value.description}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">{value.description}</p>
                   </div>
                 </FadeInOnScroll>
               ))}
@@ -181,7 +183,7 @@ export default function AboutPage() {
         {/* ── Team ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
+          style={{ background: "#FFFFFF" }}
           aria-label="Our Team"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -191,29 +193,29 @@ export default function AboutPage() {
                 <div>
                   <p className="eyebrow mb-6">The Team</p>
                   <h2
-                    className="display-black text-white mb-6"
+                    className="display-black text-gray-900 mb-6"
                     style={{ fontSize: "clamp(2.4rem, 5vw, 3.8rem)" }}
                   >
                     {team.headline}
                   </h2>
-                  <p className="text-gray-300 leading-relaxed mb-6">{team.description}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6">{team.description}</p>
                   <div
                     className="p-6 rounded-xl"
                     style={{
-                      background: "rgba(59,111,212,0.1)",
-                      border: "1px solid rgba(59,111,212,0.22)",
+                      background: "#EEF3FB",
+                      border: "1.5px solid rgba(59,111,212,0.2)",
                     }}
                   >
                     <h3
-                      className="font-bold text-white text-lg mb-1"
-                      style={{ fontFamily: "var(--font-playfair)" }}
+                      className="font-black text-gray-900 text-lg mb-1"
+                      style={{ fontFamily: "var(--font-montserrat)", letterSpacing: "-0.02em" }}
                     >
                       {team.members[0].name}
                     </h3>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-400 mb-3">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-blue-500 mb-3">
                       {team.members[0].role}
                     </p>
-                    <p className="text-sm text-gray-300 leading-relaxed">{team.members[0].bio}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed">{team.members[0].bio}</p>
                   </div>
                 </div>
               </FadeInOnScroll>
@@ -224,7 +226,8 @@ export default function AboutPage() {
                   className="relative rounded-xl overflow-hidden img-cover"
                   style={{
                     height: "460px",
-                    border: "1px solid rgba(59,111,212,0.2)",
+                    border: "1.5px solid rgba(15,23,42,0.08)",
+                    boxShadow: "0 8px 40px rgba(15,23,42,0.08)",
                   }}
                 >
                   <Image
@@ -233,11 +236,6 @@ export default function AboutPage() {
                     fill
                     className="object-cover img-editorial"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: "rgba(5,8,16,0.3)" }}
-                    aria-hidden="true"
                   />
                 </div>
               </FadeInOnScroll>

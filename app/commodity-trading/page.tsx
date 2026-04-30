@@ -7,9 +7,10 @@ import ShipRoute from "@/components/animations/ShipRoute";
 import Badge from "@/components/ui/Badge";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CtaSection from "@/components/sections/CtaSection";
+import CommodityAccordion from "@/components/sections/CommodityAccordion";
 import { Button } from "@/components/ui/Button";
 import { commodityContent } from "@/content/commodity";
-import { CheckIcon } from "lucide-react";
+import { CheckIcon, Globe, ShieldCheck, Ship, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Commodity Trading",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default function CommodityTradingPage() {
-  const { hero, trustMessages, products, process, cta } = commodityContent;
+  const { hero, trustMessages, process, cta } = commodityContent;
 
   return (
     <>
@@ -117,101 +118,94 @@ export default function CommodityTradingPage() {
           </div>
         </section>
 
-        {/* ── Featured: Rice ── */}
+        {/* ── What We Do ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
-          aria-label="Premium Rice Supply Chain"
-          id="rice"
+          style={{ background: "#FFFFFF" }}
+          aria-label="What we do in commodity trading"
+          id="what-we-do"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               {/* Text */}
               <FadeInOnScroll direction="left">
                 <div>
-                  <Badge variant="accent" className="mb-6">
-                    {products.featured.badge}
-                  </Badge>
+                  <p className="eyebrow mb-6">What We Do</p>
                   <h2
-                    className="display-headline text-white mb-6"
-                    style={{ fontSize: "clamp(2.2rem, 4.5vw, 3.8rem)" }}
+                    className="display-black text-gray-900 mb-6"
+                    style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
                   >
-                    {products.featured.title}
+                    We Source. We Trade. We Deliver.
                   </h2>
-                  <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                    {products.featured.description}
+                  <div className="h-[3px] w-16 mb-8" style={{ background: "#3B6FD4" }} aria-hidden="true" />
+                  <p className="text-lg text-gray-600 leading-relaxed mb-5">
+                    Orventis is a global commodity trading company connecting producers, exporters, and end-buyers across 6 continents. We specialize in agricultural commodities, soft commodities, vegetable oils, proteins, and fertilizers.
                   </p>
-                  <ul className="space-y-3 mb-8">
-                    {products.featured.capabilities.map((cap, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <CheckIcon
-                          className="w-4 h-4 mt-1 shrink-0"
-                          style={{ color: "#3B6FD4" }}
-                          aria-hidden="true"
-                        />
-                        <span className="text-gray-300 text-sm">{cap}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    {products.featured.origins.map((o) => (
-                      <Badge key={o} variant="navy">{o}</Badge>
-                    ))}
-                  </div>
+                  <p className="text-gray-500 leading-relaxed mb-8">
+                    With 15+ years of market expertise and relationships in 40+ countries, we provide reliable, certified, and efficiently executed trade solutions — from a single container to bulk vessel shipments.
+                  </p>
+                  <Button href="/contact" size="lg">
+                    Contact Trading Desk
+                  </Button>
                 </div>
               </FadeInOnScroll>
 
-              {/* Photo */}
+              {/* Capability cards */}
               <FadeInOnScroll direction="right" delay={150}>
-                <div
-                  className="relative rounded-xl overflow-hidden img-cover"
-                  style={{
-                    height: "480px",
-                    border: "1px solid rgba(59,111,212,0.2)",
-                  }}
-                >
-                  <Image
-                    src="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?w=900&q=80"
-                    alt="Premium rice field — flagship commodity"
-                    fill
-                    className="object-cover img-editorial"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div
-                    className="absolute bottom-0 left-0 right-0 p-8"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(5,8,16,0.92) 0%, transparent 100%)",
-                    }}
-                  >
-                    <p
-                      className="display-headline text-white mb-1"
-                      style={{ fontSize: "1.3rem" }}
-                    >
-                      Premium Origin Sourcing
-                    </p>
-                    <p className="text-xs text-gray-400 tracking-wide">
-                      SE Asia · South Asia · East Africa · Americas
-                    </p>
-                  </div>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { Icon: Globe, label: "Global Sourcing", desc: "40+ origin countries across 6 continents" },
+                    { Icon: ShieldCheck, label: "Quality Assured", desc: "SGS certified, full phytosanitary documentation" },
+                    { Icon: Ship, label: "End-to-End Logistics", desc: "Port-to-port or door-to-door solutions" },
+                    { Icon: TrendingUp, label: "Market Expertise", desc: "15+ years in international commodity markets" },
+                  ].map((item, i) => (
+                    <FadeInOnScroll key={item.label} delay={i * 60}>
+                      <div
+                        className="p-6 rounded-xl card-hover"
+                        style={{
+                          background: "#F8FAFD",
+                          border: "1.5px solid rgba(15,23,42,0.07)",
+                          boxShadow: "0 2px 12px rgba(15,23,42,0.04)",
+                        }}
+                      >
+                        <div
+                          className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+                          style={{ background: "#EEF3FB" }}
+                          aria-hidden="true"
+                        >
+                          <item.Icon size={18} style={{ color: "#3B6FD4" }} />
+                        </div>
+                        <h3
+                          className="font-black text-gray-900 mb-1"
+                          style={{ fontFamily: "var(--font-montserrat)", fontSize: "0.88rem", letterSpacing: "-0.02em" }}
+                        >
+                          {item.label}
+                        </h3>
+                        <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </FadeInOnScroll>
+                  ))}
                 </div>
               </FadeInOnScroll>
             </div>
           </div>
         </section>
 
-        {/* ── Ship Route Animation ── */}
+        {/* ── Commodity Portfolio Accordion ── */}
+        <CommodityAccordion />
+
+        {/* ── Global Sourcing ── */}
         <section
           className="py-28 lg:py-36"
           style={{ background: "#050810" }}
-          aria-label="Global Trading Network"
-          id="map"
+          aria-label="Global Sourcing Network"
+          id="global-sourcing"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
             <SectionTitle
-              eyebrow="Global Reach"
-              headline="Our Shipping Routes"
-              subtext="Orventis connects the world's key commodity hubs — from South America through Europe, the Gulf, and into Southeast Asia."
+              eyebrow="Global Sourcing"
+              headline="Our Sourcing Network"
+              subtext="Orventis maintains active sourcing positions across 40+ countries — from South American grain belts to East African coffee estates, Gulf fertilizer plants, and Southeast Asian palm plantations."
               align="center"
             />
 
@@ -226,56 +220,10 @@ export default function CommodityTradingPage() {
           </div>
         </section>
 
-        {/* ── Other commodities ── */}
-        <section
-          className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
-          aria-label="Other Commodities"
-          id="grains"
-        >
-          <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
-            <SectionTitle
-              eyebrow="Our Portfolio"
-              headline="Commodities We Trade"
-              subtext="Beyond rice, we source and trade a broad range of agricultural and commercial commodities across verified global supply chains."
-              align="center"
-            />
-
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {products.secondary.map((product, i) => (
-                <FadeInOnScroll key={product.id} delay={i * 70}>
-                  <div
-                    className="p-7 rounded-xl card-hover"
-                    style={{
-                      background: "var(--color-bg-card)",
-                      border: "1px solid rgba(59,111,212,0.12)",
-                    }}
-                  >
-                    <div
-                      className="w-10 h-10 rounded flex items-center justify-center mb-5"
-                      style={{ background: "rgba(59,111,212,0.15)" }}
-                      aria-hidden="true"
-                    >
-                      <CommodityIcon type={product.icon} />
-                    </div>
-                    <h3
-                      className="display-headline text-white mb-3"
-                      style={{ fontSize: "1.1rem" }}
-                    >
-                      {product.title}
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{product.description}</p>
-                  </div>
-                </FadeInOnScroll>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ── Process ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#111827" }}
+          style={{ background: "#F8FAFD" }}
           aria-label="Trading Process"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -284,6 +232,7 @@ export default function CommodityTradingPage() {
               headline="End-to-End Transaction Process"
               subtext="From initial source verification to final payment settlement — complete transparency at every step."
               align="center"
+              light={true}
             />
 
             <div className="mt-16 grid grid-cols-1 md:grid-cols-5 gap-3 relative">
@@ -291,7 +240,7 @@ export default function CommodityTradingPage() {
                 className="hidden md:block absolute top-10 left-[10%] right-[10%] h-px"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgba(59,111,212,0.5), transparent)",
+                    "linear-gradient(90deg, transparent, rgba(59,111,212,0.4), transparent)",
                 }}
                 aria-hidden="true"
               />
@@ -301,19 +250,20 @@ export default function CommodityTradingPage() {
                     <div
                       className="w-20 h-20 rounded-full flex items-center justify-center mb-4 relative z-10"
                       style={{
-                        background: "#0D0D1A",
+                        background: "#FFFFFF",
                         border: "2px solid #3B6FD4",
-                        color: "#5A8DE8",
-                        fontFamily: "var(--font-playfair)",
+                        color: "#3B6FD4",
+                        fontFamily: "var(--font-montserrat)",
                         fontSize: "1.1rem",
                         fontWeight: 900,
                         letterSpacing: "-0.02em",
+                        boxShadow: "0 4px 16px rgba(59,111,212,0.12)",
                       }}
                     >
                       {step.step}
                     </div>
-                    <h3 className="font-semibold text-white mb-2 text-sm">{step.title}</h3>
-                    <p className="text-xs text-gray-400 leading-relaxed">{step.desc}</p>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm">{step.title}</h3>
+                    <p className="text-xs text-gray-500 leading-relaxed">{step.desc}</p>
                   </div>
                 </FadeInOnScroll>
               ))}
@@ -355,19 +305,4 @@ export default function CommodityTradingPage() {
       <Footer />
     </>
   );
-}
-
-function CommodityIcon({ type }: { type: string }) {
-  const p = {
-    width: 20, height: 20, viewBox: "0 0 24 24",
-    fill: "none", stroke: "#3B6FD4", strokeWidth: 1.5,
-    strokeLinecap: "round" as const, "aria-hidden": true as const,
-  };
-  const icons: Record<string, React.ReactNode> = {
-    grains: <svg {...p}><path d="M12 2C6 2 3 6 3 10c0 4 3 8 9 10 6-2 9-6 9-10 0-4-3-8-9-8z"/><path d="M12 2v20M3 10h18"/></svg>,
-    agricultural: <svg {...p}><path d="M12 22V12M12 12C12 7 8 3 3 3c0 5 4 9 9 9zM12 12c0-5 4-9 9-9 0 5-4 9-9 9"/></svg>,
-    industrial: <svg {...p}><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>,
-    consumer: <svg {...p}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>,
-  };
-  return <>{icons[type] ?? icons.grains}</>;
 }

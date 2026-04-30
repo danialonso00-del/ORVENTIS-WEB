@@ -2,8 +2,9 @@ import Link from "next/link";
 
 const footerLinks = {
   services: [
-    { label: "Commodity Trading", href: "/commodity-trading" },
+    { label: "Trading", href: "/commodity-trading" },
     { label: "Brand Positioning", href: "/brand-positioning" },
+    { label: "Careers", href: "/careers" },
     { label: "About Orventis", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

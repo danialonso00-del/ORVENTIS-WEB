@@ -97,7 +97,7 @@ export default function BrandPositioningPage() {
         {/* ── Narrative + why Orventis ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
+          style={{ background: "#FFFFFF" }}
           aria-label="Brand narrative"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -106,7 +106,7 @@ export default function BrandPositioningPage() {
                 <div>
                   <p className="eyebrow mb-6">Our Approach</p>
                   <h2
-                    className="display-black text-white leading-tight"
+                    className="display-black text-gray-900 leading-tight"
                     style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
                   >
                     {narrative.title}
@@ -116,12 +116,12 @@ export default function BrandPositioningPage() {
               </FadeInOnScroll>
               <FadeInOnScroll direction="right" delay={150}>
                 <div>
-                  <p className="text-lg text-gray-300 leading-relaxed mb-8">{narrative.body}</p>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">{narrative.body}</p>
                   <ul className="space-y-3">
                     {whyOrventis.map((point, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <CheckIcon className="w-4 h-4 mt-1 shrink-0" style={{ color: "#3B6FD4" }} aria-hidden="true" />
-                        <span className="text-gray-300 text-sm">{point}</span>
+                        <span className="text-gray-600 text-sm">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -134,7 +134,7 @@ export default function BrandPositioningPage() {
         {/* ── Services grid with image ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#111827" }}
+          style={{ background: "#F8FAFD" }}
           aria-label="Brand Positioning Services"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -143,13 +143,14 @@ export default function BrandPositioningPage() {
               headline="Everything your brand needs to go global"
               subtext="From strategy to execution — the full spectrum of international brand building."
               align="center"
+              light={true}
             />
 
             {/* Photo strip above grid */}
             <FadeInOnScroll delay={100} className="mt-14 mb-14">
               <div
                 className="relative w-full overflow-hidden rounded-xl img-cover"
-                style={{ height: "320px", border: "1px solid rgba(59,111,212,0.15)" }}
+                style={{ height: "320px", border: "1.5px solid rgba(15,23,42,0.08)", boxShadow: "0 4px 32px rgba(15,23,42,0.06)" }}
               >
                 <Image
                   src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=80"
@@ -172,25 +173,26 @@ export default function BrandPositioningPage() {
                   <div
                     className="p-8 rounded-xl card-hover"
                     style={{
-                      background: "var(--color-bg-card)",
-                      border: "1px solid rgba(59,111,212,0.12)",
+                      background: "#FFFFFF",
+                      border: "1.5px solid rgba(15,23,42,0.07)",
+                      boxShadow: "0 2px 16px rgba(15,23,42,0.05)",
                     }}
                     id={service.id}
                   >
                     <div
                       className="w-12 h-12 rounded-lg flex items-center justify-center mb-5"
-                      style={{ background: "rgba(59,111,212,0.15)" }}
+                      style={{ background: "#EEF3FB" }}
                       aria-hidden="true"
                     >
                       <ServiceIcon type={service.icon} />
                     </div>
                     <h3
-                      className="display-headline text-white mb-3"
+                      className="display-headline text-gray-900 mb-3"
                       style={{ fontSize: "1.15rem" }}
                     >
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                    <p className="text-gray-500 text-sm leading-relaxed mb-5">
                       {service.description}
                     </p>
                     <ul className="space-y-1.5">

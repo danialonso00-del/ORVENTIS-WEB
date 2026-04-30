@@ -83,7 +83,7 @@ export default function ContactPage() {
         {/* ── Form + sidebar ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
+          style={{ background: "#FFFFFF" }}
           aria-label="Contact form and information"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -94,7 +94,7 @@ export default function ContactPage() {
                 <div>
                   <p className="eyebrow mb-4">Send a Message</p>
                   <h2
-                    className="display-black text-white mb-10"
+                    className="display-black text-gray-900 mb-10"
                     style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
                   >
                     Tell us about your project
@@ -114,12 +114,12 @@ export default function ContactPage() {
                   <div
                     className="p-7 rounded-xl"
                     style={{
-                      background: "var(--color-bg-card)",
-                      border: "1px solid rgba(59,111,212,0.18)",
+                      background: "#F8FAFD",
+                      border: "1.5px solid rgba(59,111,212,0.15)",
                     }}
                   >
                     <h3
-                      className="display-headline text-white mb-5"
+                      className="display-headline text-gray-900 mb-5"
                       style={{ fontSize: "1.15rem" }}
                     >
                       Contact Information
@@ -128,10 +128,10 @@ export default function ContactPage() {
                       <div className="flex items-start gap-3">
                         <EmailIcon />
                         <div>
-                          <p className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Email</p>
+                          <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">Email</p>
                           <a
                             href={`mailto:${info.email}`}
-                            className="text-sm text-blue-400 hover:text-white transition-colors duration-200"
+                            className="text-sm text-blue-500 hover:text-blue-700 transition-colors duration-200"
                           >
                             {info.email}
                           </a>
@@ -140,12 +140,12 @@ export default function ContactPage() {
                       <div className="flex items-start gap-3">
                         <LinkedInIcon />
                         <div>
-                          <p className="text-xs text-gray-500 mb-1 uppercase tracking-wider">LinkedIn</p>
+                          <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">LinkedIn</p>
                           <a
                             href={info.linkedIn}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-blue-400 hover:text-white transition-colors duration-200"
+                            className="text-sm text-blue-500 hover:text-blue-700 transition-colors duration-200"
                           >
                             Orventis on LinkedIn
                           </a>
@@ -154,10 +154,10 @@ export default function ContactPage() {
                     </div>
                     <div
                       className="mt-5 pt-5 flex items-start gap-2"
-                      style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+                      style={{ borderTop: "1px solid rgba(15,23,42,0.08)" }}
                     >
                       <ClockIcon />
-                      <p className="text-xs text-gray-400">{info.responseTime}</p>
+                      <p className="text-xs text-gray-500">{info.responseTime}</p>
                     </div>
                   </div>
 
@@ -170,19 +170,19 @@ export default function ContactPage() {
                           key={reason.title}
                           className="flex items-start gap-4 p-4 rounded-lg card-hover"
                           style={{
-                            background: "rgba(255,255,255,0.03)",
-                            border: "1px solid rgba(255,255,255,0.06)",
+                            background: "#F8FAFD",
+                            border: "1.5px solid rgba(15,23,42,0.07)",
                           }}
                         >
                           <div
                             className="w-8 h-8 rounded flex items-center justify-center shrink-0"
-                            style={{ background: "rgba(59,111,212,0.15)" }}
+                            style={{ background: "#EEF3FB" }}
                             aria-hidden="true"
                           >
                             <ReasonIcon type={reason.icon} />
                           </div>
                           <div>
-                            <p className="text-sm font-semibold text-white">{reason.title}</p>
+                            <p className="text-sm font-semibold text-gray-900">{reason.title}</p>
                             <p className="text-xs text-gray-500 mt-0.5">{reason.desc}</p>
                           </div>
                         </div>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   {/* Decorative photo */}
                   <div
                     className="relative rounded-xl overflow-hidden img-cover"
-                    style={{ height: "200px", border: "1px solid rgba(59,111,212,0.15)" }}
+                    style={{ height: "200px", border: "1.5px solid rgba(15,23,42,0.08)", boxShadow: "0 4px 20px rgba(15,23,42,0.06)" }}
                   >
                     <Image
                       src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&q=80"

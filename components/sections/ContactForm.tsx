@@ -50,10 +50,10 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
     reset();
   };
 
-  const inputClass = `w-full px-4 py-3 rounded text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 transition-all duration-200`;
+  const inputClass = `w-full px-4 py-3 rounded text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30 transition-all duration-200`;
   const inputStyle = {
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(59,111,212,0.2)",
+    background: "#F8FAFD",
+    border: "1.5px solid rgba(15,23,42,0.12)",
     borderRadius: "6px",
   };
   const inputFocusStyle = { borderColor: "#3B6FD4" };
@@ -77,12 +77,12 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
           </svg>
         </div>
         <h3
-          className="text-2xl font-semibold text-white mb-3"
-          style={{ fontFamily: "var(--font-playfair)" }}
+          className="text-2xl font-black text-gray-900 mb-3"
+          style={{ fontFamily: "var(--font-montserrat)", letterSpacing: "-0.03em" }}
         >
           Message Sent
         </h3>
-        <p className="text-gray-300 max-w-sm">{successMessage}</p>
+        <p className="text-gray-600 max-w-sm">{successMessage}</p>
         <button
           onClick={() => setSubmitted(false)}
           className="mt-8 text-sm font-medium transition-colors duration-200"
@@ -98,8 +98,8 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-            {fields.name.label} <span className="text-red-400">*</span>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            {fields.name.label} <span className="text-red-500">*</span>
           </label>
           <input
             id="name"
@@ -119,8 +119,8 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-            {fields.company.label} <span className="text-red-400">*</span>
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+            {fields.company.label} <span className="text-red-500">*</span>
           </label>
           <input
             id="company"
@@ -142,8 +142,8 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-            {fields.email.label} <span className="text-red-400">*</span>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            {fields.email.label} <span className="text-red-500">*</span>
           </label>
           <input
             id="email"
@@ -156,14 +156,14 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
             {...register("email")}
           />
           {errors.email && (
-            <p id="email-error" className="mt-1.5 text-xs text-red-400" role="alert">
+            <p id="email-error" className="mt-1.5 text-xs text-red-500" role="alert">
               {errors.email.message}
             </p>
           )}
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
             {fields.phone.label}
           </label>
           <input
@@ -178,8 +178,8 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
       </div>
 
       <div>
-        <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-          {fields.subject.label} <span className="text-red-400">*</span>
+        <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+          {fields.subject.label} <span className="text-red-500">*</span>
         </label>
         <select
           id="subject"
@@ -193,22 +193,22 @@ export default function ContactForm({ fields, submitLabel, successMessage }: Con
             <option
               key={opt.value}
               value={opt.value}
-              style={{ background: "#1C1C2E" }}
+              style={{ background: "#F8FAFD" }}
             >
               {opt.label}
             </option>
           ))}
         </select>
         {errors.subject && (
-          <p id="subject-error" className="mt-1.5 text-xs text-red-400" role="alert">
+          <p id="subject-error" className="mt-1.5 text-xs text-red-500" role="alert">
             {errors.subject.message}
           </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-          {fields.message.label} <span className="text-red-400">*</span>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          {fields.message.label} <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"

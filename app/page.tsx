@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { OrventisAnimatedHero } from "@/components/ui/animated-hero";
 import StatsSection from "@/components/sections/StatsSection";
 import CtaSection from "@/components/sections/CtaSection";
+import ClientFlowDiagram from "@/components/sections/ClientFlowDiagram";
 import FadeInOnScroll from "@/components/animations/FadeInOnScroll";
 import { Button } from "@/components/ui/Button";
 import { homeContent } from "@/content/home";
@@ -29,7 +30,7 @@ export default function HomePage() {
         {/* ── Intro ── */}
         <section
           className="py-28 lg:py-36"
-          style={{ background: "#0D0D1A" }}
+          style={{ background: "#FFFFFF" }}
           aria-label="About Orventis"
         >
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-16">
@@ -38,7 +39,7 @@ export default function HomePage() {
                 <div>
                   <p className="eyebrow mb-6">Who We Are</p>
                   <h2
-                    className="display-black text-white mb-6"
+                    className="display-black text-gray-900 mb-6"
                     style={{ fontSize: "clamp(2.4rem, 5vw, 4.2rem)" }}
                   >
                     {intro.tagline}
@@ -52,20 +53,20 @@ export default function HomePage() {
               </FadeInOnScroll>
               <FadeInOnScroll direction="right" delay={150}>
                 <div className="space-y-5">
-                  <p className="text-lg text-gray-300 leading-relaxed">{intro.description}</p>
+                  <p className="text-lg text-gray-600 leading-relaxed">{intro.description}</p>
                   <p className="text-base text-gray-500 leading-relaxed">{intro.detail}</p>
                   <div
                     className="flex flex-wrap items-center gap-3 pt-4"
-                    style={{ borderTop: "1px solid rgba(59,111,212,0.15)" }}
+                    style={{ borderTop: "1px solid rgba(15,23,42,0.08)" }}
                   >
                     {["Commodity Trading", "Brand Positioning", "6 Continents", "15+ Years"].map((tag) => (
                       <span
                         key={tag}
                         className="text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded"
                         style={{
-                          background: "rgba(59,111,212,0.12)",
-                          border: "1px solid rgba(59,111,212,0.25)",
-                          color: "#5A8DE8",
+                          background: "#EEF3FB",
+                          border: "1px solid rgba(59,111,212,0.2)",
+                          color: "#1A2B5E",
                         }}
                       >
                         {tag}
@@ -91,6 +92,9 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+
+        {/* ── 3D Client Flow Diagram ── */}
+        <ClientFlowDiagram />
 
         {/* ── Stats ── */}
         <StatsSection stats={stats} />
@@ -199,7 +203,7 @@ function BusinessCard({ line, index }: { line: BusinessLine; index: number }) {
       <span
         className="absolute top-8 right-8 font-black opacity-[0.07] pointer-events-none select-none"
         style={{
-          fontFamily: "var(--font-playfair)",
+          fontFamily: "var(--font-montserrat)",
           fontSize: "clamp(7rem, 14vw, 12rem)",
           color: "#fff",
           lineHeight: 1,
