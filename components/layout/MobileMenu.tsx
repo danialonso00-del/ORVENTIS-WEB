@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { X } from "lucide-react";
 
@@ -45,12 +46,14 @@ export default function MobileMenu({ links, isOpen, onClose, pathname }: MobileM
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-white/10">
-          <span
-            className="text-xl font-semibold text-white"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            Orventis
-          </span>
+          <div className="relative h-8 w-36">
+            <Image
+              src="/images/Orventis_logo_white.png"
+              alt="Orventis"
+              fill
+              className="object-contain object-left"
+            />
+          </div>
           <button
             onClick={onClose}
             className="p-2 text-gray-400 hover:text-white transition-colors"

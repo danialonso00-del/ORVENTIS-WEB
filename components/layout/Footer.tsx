@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   services: [
@@ -34,14 +35,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <OrventisLogoSmall />
-              <span
-                className="text-xl font-semibold text-white"
-                style={{ fontFamily: "var(--font-playfair)" }}
-              >
-                Orventis
-              </span>
+            <Link href="/" className="inline-flex items-center mb-6">
+              <div className="relative h-8 w-40">
+                <Image
+                  src="/images/Orventis_logo_white.png"
+                  alt="Orventis"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6 max-w-xs">
               Where global trade meets strategic brand thinking. Operating across 6 continents with 15+ years of expertise.
@@ -115,19 +117,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function OrventisLogoSmall() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17" stroke="#3B6FD4" strokeWidth="1.5" />
-      <path d="M9 18 Q13 10 18 18 Q23 26 27 18" stroke="#3B6FD4" strokeWidth="2" strokeLinecap="round" fill="none" />
-      <path d="M9 18 Q13 26 18 18 Q23 10 27 18" stroke="#5A8DE8" strokeWidth="2" strokeLinecap="round" fill="none" opacity="0.6" />
-      <circle cx="9" cy="18" r="2.5" fill="#3B6FD4" />
-      <circle cx="27" cy="18" r="2.5" fill="#3B6FD4" />
-      <circle cx="18" cy="18" r="2" fill="#5A8DE8" />
-    </svg>
   );
 }
 

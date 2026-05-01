@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import MobileMenu from "./MobileMenu";
 
@@ -38,14 +39,16 @@ export default function Header() {
       >
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-16 flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group" aria-label="Orventis Home">
-            <OrventisLogo />
-            <span
-              className="text-2xl font-black text-white group-hover:text-blue-400 transition-colors duration-200"
-              style={{ fontFamily: "var(--font-playfair)", letterSpacing: "-0.03em" }}
-            >
-              Orventis
-            </span>
+          <Link href="/" className="flex items-center group" aria-label="Orventis Home">
+            <div className="relative h-9 w-40">
+              <Image
+                src="/images/Orventis_logo_white.png"
+                alt="Orventis"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -103,28 +106,3 @@ export default function Header() {
   );
 }
 
-function OrventisLogo() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17" stroke="#3B6FD4" strokeWidth="1.5" />
-      <path
-        d="M9 18 Q13 10 18 18 Q23 26 27 18"
-        stroke="#3B6FD4"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <path
-        d="M9 18 Q13 26 18 18 Q23 10 27 18"
-        stroke="#5A8DE8"
-        strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.6"
-      />
-      <circle cx="9" cy="18" r="2.5" fill="#3B6FD4" />
-      <circle cx="27" cy="18" r="2.5" fill="#3B6FD4" />
-      <circle cx="18" cy="18" r="2" fill="#5A8DE8" />
-    </svg>
-  );
-}
