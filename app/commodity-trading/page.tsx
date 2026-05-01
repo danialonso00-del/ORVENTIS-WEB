@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FadeInOnScroll from "@/components/animations/FadeInOnScroll";
-import ShipRoute from "@/components/animations/ShipRoute";
+import Globe3D from "@/components/animations/Globe3D";
 import Badge from "@/components/ui/Badge";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CtaSection from "@/components/sections/CtaSection";
@@ -210,12 +210,7 @@ export default function CommodityTradingPage() {
             />
 
             <FadeInOnScroll delay={200} className="mt-16">
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ border: "1px solid rgba(59,111,212,0.18)" }}
-              >
-                <ShipRoute />
-              </div>
+              <Globe3D />
             </FadeInOnScroll>
           </div>
         </section>
