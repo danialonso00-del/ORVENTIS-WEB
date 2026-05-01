@@ -46,9 +46,9 @@ export default function MobileMenu({ links, isOpen, onClose, pathname }: MobileM
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-white/10">
-          <div className="relative h-8 w-36">
+          <div className="relative h-10 w-44">
             <Image
-              src="/images/Orventis_logo_white.png"
+              src="/Images/Orventis_logo_white.png"
               alt="Orventis"
               fill
               className="object-contain object-left"

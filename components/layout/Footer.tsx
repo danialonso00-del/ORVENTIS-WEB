@@ -36,9 +36,9 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center mb-6">
-              <div className="relative h-8 w-40">
+              <div className="relative h-10 w-44">
                 <Image
-                  src="/images/Orventis_logo_white.png"
+                  src="/Images/Orventis_logo_white.png"
                   alt="Orventis"
                   fill
                   className="object-contain object-left"

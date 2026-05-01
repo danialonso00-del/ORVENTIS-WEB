@@ -38,15 +38,23 @@ export default function Header() {
         }}
       >
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-16 flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center group" aria-label="Orventis Home">
-            <div className="relative h-9 w-40">
+          {/* Logo — white by default, swaps to blue on hover */}
+          <Link href="/" className="group relative flex items-center" aria-label="Orventis Home">
+            <div className="relative h-12 w-48">
               <Image
-                src="/images/Orventis_logo_white.png"
+                src="/Images/Orventis_logo_white.png"
                 alt="Orventis"
                 fill
-                className="object-contain object-left"
+                className="object-contain object-left transition-opacity duration-200 group-hover:opacity-0"
                 priority
+              />
+              <Image
+                src="/Images/Orventis_logo_blue.png"
+                alt=""
+                fill
+                className="object-contain object-left transition-opacity duration-200 opacity-0 group-hover:opacity-100"
+                priority
+                aria-hidden="true"
               />
             </div>
           </Link>
